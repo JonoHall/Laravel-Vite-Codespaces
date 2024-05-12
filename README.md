@@ -47,12 +47,12 @@ The following changes will open the Laravel web server port as well as the Vite 
 }
 ```
 
-## Step 2b - Migrate/Seed Databse Automatically
+### Step 2b - OPTIONAL Migrate/Seed Databse Automatically
 
 Modify the postCreateCommand line to automatically migrate and seed the database.
 
 ```
- "postCreateCommand": "cp .env.example .env && composer install && php artisan key:generate",
+ "postCreateCommand": "cp .env.example .env && composer install && php artisan key:generate && php artisan migrate --force && php artisan db:seed",
 ```
 
 ## Step 3 - Change APP_URL
