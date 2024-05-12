@@ -50,6 +50,6 @@ Modify the APP_URL line.
 APP_URL=https://$CODESPACE_NAME}-8000.app.github.dev
 ```
 
-## Step 4 - Change Port to be Public
+## Step 4 - Change VITE Port to be Public
 
 Port 5173 must be made public by clicking on the "Ports" tab in Visual Studio. This needs to be done whenever the container is created or rebuilt.
