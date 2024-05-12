@@ -18,7 +18,7 @@ vite.config.js:
     }
 ```
 
-Technical info: The above changes correct the way Vite generates the 'public/hot' file, before making these changes, Vite would incorrectly generate a host of `http://[::1]:5173`, after making these config changes, you will get a host like `https://example-example-123456-5173.app.github.dev:443` which is the public host address for the Vite server.
+Technical info: The above changes correct the way Vite generates the 'public/hot' file, before making these changes, Vite would incorrectly generate a host of `http://[::1]:5173`, and unsurprisingly, your browser will be unable to connect to this host. After making these config changes, you will get a host like `https://example-example-123456-5173.app.github.dev:443` which is the Codespace public host address for the Vite server.
 
 ## Step 2 - devcontainer.json
 
