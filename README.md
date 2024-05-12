@@ -14,7 +14,7 @@ vite.config.js:
     }
 ```
 
-## Step 2 - vite.config.js
+## Step 2 - devcontainer.json
 
 .devcontainer/devcontainer.json
 
