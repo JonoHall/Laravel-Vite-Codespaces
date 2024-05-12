@@ -1,3 +1,5 @@
+## Step 1 - vite.config.js
+
 vite.config.js:
 ```
     plugins: [
@@ -12,10 +14,42 @@ vite.config.js:
     }
 ```
 
-Run on separate terminals:
+## Step 2 - vite.config.js
+
+.devcontainer/devcontainer.json
+
 ```
-php artisan serve
-npm run dev
+{
+    "image":"mcr.microsoft.com/devcontainers/universal:2",
+    // Use 'forwardPorts' to make a list of ports inside the container available locally.
+    "forwardPorts": [8000,5173],
+	"portsAttributes": {
+		"8000": {
+			"label": "Laravel App",
+            "onAutoForward": "openPreview"
+		},
+		"5173": {
+			"label": "React App",
+		}
+	},
+    "postCreateCommand": "cp .env.example .env && composer install && php artisan key:generate && yarn install && yarn run development && php artisan migrate && php artisan db:seed",
+	"postAttachCommand": {
+		"vite": "npm run dev",
+		"laravel": "php artisan serve",
+	  }
+}
 ```
 
-Port 5173 must be made public by clicking on the "Ports" tab in Visual Studio. This must be done on initial launch, as well as every subsequent change to config as this will re-launch the port opening and reset it back to private.
+## Step 3 - Change APP_URL
+
+.env.example
+
+Modify the APP_URL line.
+
+```
+APP_URL=https://$CODESPACE_NAME}-8000.app.github.dev
+```
+
+## Step 4 - Change Port to be Public
+
+Port 5173 must be made public by clicking on the "Ports" tab in Visual Studio. This needs to be done whenever the container is created or rebuilt.
