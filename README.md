@@ -37,7 +37,7 @@ These changes will open the Laravel web server port as well as the VITE port. po
 			"label": "React App",
 		}
 	},
-    "postCreateCommand": "cp .env.example .env && composer install && php artisan key:generate && yarn install && yarn run development && php artisan migrate && php artisan db:seed",
+    "postCreateCommand": "cp .env.example .env && composer install && php artisan key:generate && php artisan migrate --force && php artisan db:seed",
 	"postAttachCommand": {
 		"vite": "npm run dev",
 		"laravel": "php artisan serve",
