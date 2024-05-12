@@ -1,5 +1,7 @@
 ## Step 1 - vite.config.js
 
+Change the VITE config so that the Codespace's Laravel web server knows where to connect to the VITE instanace.
+
 vite.config.js:
 ```
     plugins: [
@@ -16,8 +18,11 @@ vite.config.js:
 
 ## Step 2 - devcontainer.json
 
-.devcontainer/devcontainer.json
+These changes will open the Laravel web server port as well as the VITE port. postCreateCommand will also migrate your database and seed it as required. postAttachCommand will execute the Laravel web server command and execute the VITE server.
 
+
+
+.devcontainer/devcontainer.json
 ```
 {
     "image":"mcr.microsoft.com/devcontainers/universal:2",
@@ -42,10 +47,11 @@ vite.config.js:
 
 ## Step 3 - Change APP_URL
 
+
+
+Modify the APP_URL line in your .env.example will ensure that every time the Codespace instance is built, Laravel will have the correct URL.
+
 .env.example
-
-Modify the APP_URL line.
-
 ```
 APP_URL=https://$CODESPACE_NAME}-8000.app.github.dev
 ```
