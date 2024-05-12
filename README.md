@@ -16,4 +16,4 @@ Run:
 php artisan serve
 npm run dev
 
-Port 5173 must be made public
+Port 5173 must be made public by clicking on the "Ports" tab in Visual Studio. This must be done on initial launch, as well as every subsequent change to config as this will re-launch the port opening and reset it back to private.
