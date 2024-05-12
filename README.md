@@ -1,6 +1,8 @@
+How to run a vanilla install of Laravel and Vite asset bundling on a Github Codespaces instance.
+
 ## Step 1 - vite.config.js
 
-Change the VITE config so that the Codespace's Laravel web server knows where to connect to the VITE instanace.
+Change the Vite config so that when you open the Laravel website with your web client, your browser knows where to connect to the Vite instanace.
 
 vite.config.js:
 ```
@@ -16,11 +18,11 @@ vite.config.js:
     }
 ```
 
+Technical info: The above changes correct the way Vite generates the 'public/hot' file, before making these changes, Vite would incorrectly generate a host of `http://[::1]:5173`, after making these config changes, you will get a host like `https://example-example-123456-5173.app.github.dev:443` which is the public host address for the Vite server.
+
 ## Step 2 - devcontainer.json
 
-These changes will open the Laravel web server port as well as the VITE port. postCreateCommand will also migrate your database and seed it as required. postAttachCommand will execute the Laravel web server command and execute the VITE server.
-
-
+The following changes will open the Laravel web server port as well as the Vite port. postAttachCommand will execute the Laravel web server command and execute the Vite asset server.
 
 .devcontainer/devcontainer.json
 ```
@@ -34,20 +36,26 @@ These changes will open the Laravel web server port as well as the VITE port. po
             "onAutoForward": "openPreview"
 		},
 		"5173": {
-			"label": "React App",
+			"label": "React App"
 		}
 	},
-    "postCreateCommand": "cp .env.example .env && composer install && php artisan key:generate && php artisan migrate --force && php artisan db:seed",
+    "postCreateCommand": "cp .env.example .env && composer install && php artisan key:generate",
 	"postAttachCommand": {
 		"vite": "npm run dev",
-		"laravel": "php artisan serve",
+		"laravel": "php artisan serve"
 	  }
 }
 ```
 
+## Step 2b - Migrate/Seed Databse Automatically
+
+Modify the postCreateCommand line to automatically migrate and seed the database.
+
+```
+ "postCreateCommand": "cp .env.example .env && composer install && php artisan key:generate",
+```
+
 ## Step 3 - Change APP_URL
-
-
 
 Modify the APP_URL line in your .env.example will ensure that every time the Codespace instance is built, Laravel will have the correct URL.
 
