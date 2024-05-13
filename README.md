@@ -34,15 +34,15 @@ The following changes will open the Laravel web server port as well as the Vite 
     "forwardPorts": [8000,5173],
 	"portsAttributes": {
 		"8000": {
-			"label": "Laravel App",
-            "onAutoForward": "openPreview"
+			"label": "Laravel App"
 		},
 		"5173": {
 			"label": "React App"
 		}
 	},
-    "postCreateCommand": "cp .env.example .env && composer install && npm install && php artisan key:generate && gh codespace ports visibility 5173:public -c $CODESPACE_NAME && php artisan migrate --force",
+    "postCreateCommand": "cp .env.example .env && composer install && npm install && php artisan key:generate && php artisan migrate --force",
 	"postAttachCommand": {
+		"server": "gh codespace ports visibility 5173:public -c $CODESPACE_NAME"
 		"vite": "npm run dev",
 		"laravel": "php artisan serve"
 	  }
