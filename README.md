@@ -48,6 +48,10 @@ https://laravel.com/docs/11.x/requests#trusting-all-proxies
 `bootstrap/app.php`
 ```
 ->withMiddleware(function (Middleware $middleware) {
+        $middleware->web(append: [
+            \App\Http\Middleware\HandleInertiaRequests::class,
+            \Illuminate\Http\Middleware\AddLinkHeadersForPreloadedAssets::class,
+        ]);
         if (env('APP_ENV') == 'local') {
             $middleware->trustProxies(at: '*');
         }
