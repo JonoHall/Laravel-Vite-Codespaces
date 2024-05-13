@@ -22,7 +22,7 @@ Change the Vite config so that when you open the Laravel website with your web c
 
 ## Step 2 - devcontainer.json
 
-The following changes will open the Laravel web server port as well as the Vite port. postAttachCommand will execute the Laravel web server command and execute the Vite asset server.
+The following changes will open the Laravel web server port as well as the Vite port. postAttachCommand will execute the Laravel web server command and execute the Vite asset server. It will also convert Vite's 5173 port to be public.
 
 `.devcontainer/devcontainer.json`
 ```
@@ -39,7 +39,7 @@ The following changes will open the Laravel web server port as well as the Vite 
 			"label": "React App"
 		}
 	},
-    "postCreateCommand": "cp .env.example .env && composer install && php artisan key:generate",
+    "postCreateCommand": "cp .env.example .env && composer install && php artisan key:generate && gh codespace ports visibility 5173:public -c $CODESPACE_NAME",
 	"postAttachCommand": {
 		"vite": "npm run dev",
 		"laravel": "php artisan serve"
@@ -49,10 +49,10 @@ The following changes will open the Laravel web server port as well as the Vite 
 
 ### Step 2b - OPTIONAL Migrate/Seed Databse Automatically
 
-Modify the postCreateCommand line to automatically migrate and seed the database.
+Modify the postCreateCommand line to automatically migrate and seed the database. *USE AT OWN RISK, DATABASE WILL BE OVERWRITTEN EVERY CODESPACE REBUILD*.
 `.devcontainer/devcontainer.json`
 ```
- "postCreateCommand": "cp .env.example .env && composer install && php artisan key:generate && php artisan migrate --force && php artisan db:seed",
+ "postCreateCommand": "cp .env.example .env && composer install && php artisan key:generate && gh codespace ports visibility 5173:public -c $CODESPACE_NAME && php artisan migrate:fresh --seed --force",
 ```
 
 ## Step 3 - Change Laravel's App URL variable
@@ -88,7 +88,3 @@ https://laravel.com/docs/11.x/requests#trusting-all-proxies
         }
 })
 ```
-
-## Step 5 - Change Vite Port to be Public (Future repeated step!)
-
-Port 5173 must be made public by clicking on the "Ports" tab in Visual Studio. *Repeat this step every time the Codespace is created or rebuilt.*
