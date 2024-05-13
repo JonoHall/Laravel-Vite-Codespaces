@@ -87,6 +87,6 @@ https://laravel.com/docs/11.x/requests#trusting-all-proxies
 })
 ```
 
-## Step 5 - Change Vite Port to be Public (Repeatable step!)
+## Step 5 - Change Vite Port to be Public (Future repeated step!)
 
 Port 5173 must be made public by clicking on the "Ports" tab in Visual Studio. *Repeat this step every time the Codespace is created or rebuilt.*
