@@ -57,11 +57,19 @@ Modify the postCreateCommand line to automatically migrate and seed the database
 
 ## Step 3 - Change APP_URL
 
-Modify the APP_URL line in your .env.example will ensure that every time the Codespace instance is built, Laravel will have the correct URL.
+Add a CODESPACES_APP_URL line to your .env.example will ensure that every time the Codespace instance is built, Laravel will have the correct URL.
 
 `.env.example`
 ```
-APP_URL=https://$CODESPACE_NAME}-8000.app.github.dev
+APP_URL=http://localhost
+CODESPACES_APP_URL=https://$CODESPACE_NAME}-8000.app.github.dev
+```
+
+Modify the App Config `url` line to use the new environment variable.
+
+`config/app.php`
+```
+'url' => (env('CODESPACES_APP_URL', env('APP_URL', 'http://localhost'))),
 ```
 
 ## Step 4 - Trust all proxies
