@@ -4,7 +4,7 @@ How to run a vanilla install of Laravel and Vite asset bundling on a Github Code
 
 Change the Vite config so that when you open the Laravel website with your web client, your browser knows where to connect to the Vite instanace.
 
-vite.config.js:
+`vite.config.js:`
 ```
     plugins: [
       ...
@@ -24,7 +24,7 @@ Technical info: The above changes correct the way Vite generates the 'public/hot
 
 The following changes will open the Laravel web server port as well as the Vite port. postAttachCommand will execute the Laravel web server command and execute the Vite asset server.
 
-.devcontainer/devcontainer.json
+`.devcontainer/devcontainer.json`
 ```
 {
     "image":"mcr.microsoft.com/devcontainers/universal:2",
@@ -50,7 +50,7 @@ The following changes will open the Laravel web server port as well as the Vite 
 ### Step 2b - OPTIONAL Migrate/Seed Databse Automatically
 
 Modify the postCreateCommand line to automatically migrate and seed the database.
-
+`.devcontainer/devcontainer.json`
 ```
  "postCreateCommand": "cp .env.example .env && composer install && php artisan key:generate && php artisan migrate --force && php artisan db:seed",
 ```
@@ -59,11 +59,26 @@ Modify the postCreateCommand line to automatically migrate and seed the database
 
 Modify the APP_URL line in your .env.example will ensure that every time the Codespace instance is built, Laravel will have the correct URL.
 
-.env.example
+`.env.example`
 ```
 APP_URL=https://$CODESPACE_NAME}-8000.app.github.dev
 ```
 
-## Step 4 - Change VITE Port to be Public
+## Step 4 - Trust all proxies
+
+You must trust all proxies for URLs to generate properly. You will find that your Laravel applications will generate incorrect links such as "Login" pointing to `http://localhost:8000/login`, to fix this, you have to trust the Codespace proxy. This is done with the following:
+
+https://laravel.com/docs/11.x/requests#trusting-all-proxies
+
+`bootstrap/app.php`
+```
+->withMiddleware(function (Middleware $middleware) {
+        if (env('APP_ENV') == 'local') {
+            $middleware->trustProxies(at: '*');
+        }
+})
+```
+
+## Step 5 - Change Vite Port to be Public
 
 Port 5173 must be made public by clicking on the "Ports" tab in Visual Studio. This needs to be done whenever the container is created or rebuilt.
