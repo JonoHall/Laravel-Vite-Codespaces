@@ -24,6 +24,8 @@ Change the Vite config so that when you open the Laravel website with your web c
 
 The following changes will open the Laravel web server port as well as the Vite port. postAttachCommand will execute the Laravel web server command and execute the Vite asset server. It will also convert Vite's 5173 port to be public.
 
+*Please note that `artisan migrate --force` will migrate the database. Remove this if you prefer more database manual control*
+
 `.devcontainer/devcontainer.json`
 ```
 {
@@ -39,20 +41,12 @@ The following changes will open the Laravel web server port as well as the Vite 
 			"label": "React App"
 		}
 	},
-    "postCreateCommand": "cp .env.example .env && composer install && npm install && php artisan key:generate && gh codespace ports visibility 5173:public -c $CODESPACE_NAME",
+    "postCreateCommand": "cp .env.example .env && composer install && npm install && php artisan key:generate && gh codespace ports visibility 5173:public -c $CODESPACE_NAME && php artisan migrate --force",
 	"postAttachCommand": {
 		"vite": "npm run dev",
 		"laravel": "php artisan serve"
 	  }
 }
-```
-
-### Step 2b - OPTIONAL Migrate/Seed Databse Automatically
-
-Modify the postCreateCommand line to automatically migrate and seed the database. *USE AT OWN RISK, DATABASE WILL BE OVERWRITTEN EVERY CODESPACE REBUILD*.
-`.devcontainer/devcontainer.json`
-```
- "postCreateCommand": "cp .env.example .env && composer install && npm install && php artisan key:generate && gh codespace ports visibility 5173:public -c $CODESPACE_NAME && php artisan migrate --force",
 ```
 
 ## Step 3 - Change Laravel's App URL variable
