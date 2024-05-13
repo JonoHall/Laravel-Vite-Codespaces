@@ -18,7 +18,7 @@ Change the Vite config so that when you open the Laravel website with your web c
     }
 ```
 
-Technical info: The above changes correct the way Vite generates the 'public/hot' file, before making these changes, Vite would incorrectly generate a host of `http://[::1]:5173`, and unsurprisingly, your browser will be unable to connect to this host. After making these config changes, you will get a host like `https://example-example-123456-5173.app.github.dev:443` which is the Codespace public host address for the Vite server.
+*Technical info: The above changes correct the way Vite generates the 'public/hot' file, before making these changes, Vite would incorrectly generate a host of `http://[::1]:5173`, and unsurprisingly, your browser will be unable to connect to this host. After making these config changes, you will get a host like `https://example-example-123456-5173.app.github.dev:443` which is the Codespace public host address for the Vite server. The ternary operators are to ensure that Laravel to fall back to default settings if the application is deployed in a local dev environment that is not a Codespace.*
 
 ## Step 2 - devcontainer.json
 
@@ -55,7 +55,7 @@ Modify the postCreateCommand line to automatically migrate and seed the database
  "postCreateCommand": "cp .env.example .env && composer install && php artisan key:generate && php artisan migrate --force && php artisan db:seed",
 ```
 
-## Step 3 - Change APP_URL
+## Step 3 - Change Laravel's App URL variable
 
 Add a CODESPACES_APP_URL line to your .env.example will ensure that every time the Codespace instance is built, Laravel will have the correct URL.
 
@@ -71,6 +71,8 @@ Modify the App Config `url` line to use the new environment variable.
 ```
 'url' => (env('CODESPACES_APP_URL', env('APP_URL', 'http://localhost'))),
 ```
+
+*Technical info: This could be done using just APP_URL, but I wanted Laravel to fall back to default settings if the application is deployed in a local dev environment if not deployed in a Codespace.*
 
 ## Step 4 - Trust all proxies
 
