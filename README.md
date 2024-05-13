@@ -1,4 +1,4 @@
-How to run a vanilla install of Laravel and Vite asset bundling on a Github Codespaces instance.
+How to run a vanilla install of Laravel and a package that utilizes Vite asset bundling on a Github Codespaces instance.
 
 ## Step 1 - vite.config.js
 
@@ -22,32 +22,13 @@ Change the Vite config so that when you open the Laravel website with your web c
 
 ## Step 2 - devcontainer.json
 
-The following changes will open the Laravel web server port as well as the Vite port. postAttachCommand will execute the Laravel web server command and execute the Vite asset server. It will also convert Vite's 5173 port to be public.
+Copy the contents of `devcontainer.json` into a file with the path `.devcontainer/devcontainer.json`. 
+
+These commands will open the Laravel web server port as well as the Vite port. postAttachCommand will execute the Laravel web server command and execute the Vite asset server. It will also convert Vite's 5173 port to be public.
 
 *Please note that `artisan migrate --force` will migrate the database. Remove this if you prefer more database manual control*
 
-`.devcontainer/devcontainer.json`
-```
-{
-    "image":"mcr.microsoft.com/devcontainers/universal:2",
-    // Use 'forwardPorts' to make a list of ports inside the container available locally.
-    "forwardPorts": [8000,5173],
-	"portsAttributes": {
-		"8000": {
-			"label": "Laravel App"
-		},
-		"5173": {
-			"label": "React App"
-		}
-	},
-    "postCreateCommand": "cp .env.example .env && composer install && npm install && php artisan key:generate && php artisan migrate --force",
-	"postAttachCommand": {
-		"server": "gh codespace ports visibility 5173:public -c $CODESPACE_NAME"
-		"vite": "npm run dev",
-		"laravel": "php artisan serve"
-	  }
-}
-```
+[devcontainer.json](.devcontainer/devcontainer.json)
 
 ## Step 3 - Change Laravel's App URL variable
 
