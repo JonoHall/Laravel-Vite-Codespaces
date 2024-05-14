@@ -1,4 +1,8 @@
-How to run a vanilla install of Laravel and a package that utilizes Vite asset bundling on a Github Codespaces instance.
+This document demonstrates how to run a Laravel package that utilizes Vite asset bundling on a Github Codespaces instance.
+
+If you need to create a project, create a blank GitHub repository and add [devcontainer.json](.devcontainer/devcontainer.json) to it. Then create a codespace with your new repository, then run through the Laravel install instructions.
+
+If you have an existing project, modify your settings as below *at your own risk*:
 
 ## Step 1 - vite.config.js
 
