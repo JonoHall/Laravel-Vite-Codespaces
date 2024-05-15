@@ -40,7 +40,7 @@ Modify `APP_URL` in your `.env.example` to ensure that every time the Codespace 
 
 `.env.example`
 ```
-APP_URL=https://$CODESPACE_NAME}-8000.app.github.dev
+APP_URL=https://{$CODESPACE_NAME}-8000.app.github.dev
 ```
 
 ## Step 4 - Trust all proxies
