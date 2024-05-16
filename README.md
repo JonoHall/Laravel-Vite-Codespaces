@@ -36,9 +36,9 @@ These commands will open the Laravel web server port as well as the Vite port. p
 
 ## Step 3 - Change Laravel's App URL variable
 
-Modify `APP_URL` in your `.env.example` to ensure that every time the Codespace instance is built, Laravel will have the correct URL.
+Modify `APP_URL` in your `.env` (if it exists) and `.env.example` to ensure that every time the Codespace instance is built, Laravel will have the correct URL.
 
-`.env.example`
+`.env` (if it exists) and `.env.example`
 ```
 APP_URL=https://{$CODESPACE_NAME}-8000.app.github.dev
 ```
