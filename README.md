@@ -6,7 +6,7 @@ If you have an existing project, modify your settings as below *at your own risk
 
 ## Step 1 - vite.config.js
 
-Change the Vite config so that when you open the Laravel website with your web client, your browser knows where to connect to the Vite instanace.
+Change the Vite config so that when you open the Laravel website your web client will find assets at the correct Vite instanace host/port.
 
 `vite.config.js:`
 ```
