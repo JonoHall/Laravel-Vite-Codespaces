@@ -1,19 +1,4 @@
 {
     "image":"mcr.microsoft.com/devcontainers/universal:2",
-    // Use 'forwardPorts' to make a list of ports inside the container available locally.
-    "forwardPorts": [8000,5173],
-	"portsAttributes": {
-		"8000": {
-			"label": "Laravel App"
-		},
-		"5173": {
-			"label": "React App"
-		}
-	},
-    "postCreateCommand": "cp .env.example .env && composer install && npm install && php artisan key:generate && php artisan migrate --force && php artisan migrate:fresh --seed",
-	"postAttachCommand": {
-		"server": "gh codespace ports visibility 5173:public -c $CODESPACE_NAME",
-		"vite": "npm run dev",
-		"laravel": "php artisan serve"
-	  }
+    "postCreateCommand": "composer create-project laravel/laravel tmp && mv -f tmp/{.[!.],}* . && rm -d tmp && mv -f .devcontainer/devcontainer-post-install.json .devcontainer/devcontainer.json"
 }
