@@ -1,4 +1,4 @@
 {
     "image":"mcr.microsoft.com/devcontainers/universal:2",
-    "postCreateCommand": "composer create-project laravel/laravel $CODESPACE_VSCODE_FOLDER/tmp && mv -f $CODESPACE_VSCODE_FOLDER/tmp/{.[!.],}* . && rm -d $CODESPACE_VSCODE_FOLDER/tmp && mv -f $CODESPACE_VSCODE_FOLDER/devcontainer-postinstall.json $CODESPACE_VSCODE_FOLDER/.devcontainer/devcontainer.json && gh codespace rebuild -c $CODESPACE_NAME"
+    "postCreateCommand": "composer create-project laravel/laravel ${containerWorkspaceFolder}/tmp && mv -f ${containerWorkspaceFolder}/tmp/{.[!.],}* . && rm -d ${containerWorkspaceFolder}/tmp && mv -f ${containerWorkspaceFolder}/devcontainer-postinstall.json ${containerWorkspaceFolder}/.devcontainer/devcontainer.json && gh codespace rebuild -c ${containerWorkspaceFolder}"
 }
