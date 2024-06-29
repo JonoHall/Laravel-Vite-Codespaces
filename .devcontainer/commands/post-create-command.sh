@@ -1,7 +1,6 @@
 #!/bin/bash -x
-composer create-project laravel/laravel ${containerWorkspaceFolder}/tmp 
+composer create-project laravel/laravel $CONTAINER_WORKSPACE_FOLDER/tmp 
 shopt -s dotglob
-mv -f ${containerWorkspaceFolder}/tmp/* ${containerWorkspaceFolder}
-rm -d ${containerWorkspaceFolder}/tmp
-mv -f ${containerWorkspaceFolder}/devcontainer-postinstall.json ${containerWorkspaceFolder}/.devcontainer/devcontainer.json
-gh codespace rebuild -c ${devcontainerId}
+mv -f $CONTAINER_WORKSPACE_FOLDER/tmp/* $CONTAINER_WORKSPACE_FOLDER
+rm -d $CONTAINER_WORKSPACE_FOLDER/tmp
+mv -f $CONTAINER_WORKSPACE_FOLDER/devcontainer-postinstall.json $CONTAINER_WORKSPACE_FOLDER/.devcontainer/devcontainer.json
