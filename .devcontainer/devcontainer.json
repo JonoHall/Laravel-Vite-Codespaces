@@ -1,4 +1,4 @@
 {
     "image":"mcr.microsoft.com/devcontainers/universal:2",
-    "postCreateCommand": "/bin/sh ${containerWorkspaceFolder}/.devcontainer/commands/post-create-command.sh"
+    "postCreateCommand": "export CONTAINER_WORKSPACE_FOLDER='${containerWorkspaceFolder}' && /bin/sh ${containerWorkspaceFolder}/.devcontainer/commands/post-create-command.sh"
 }
