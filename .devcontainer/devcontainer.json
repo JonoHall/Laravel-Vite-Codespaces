@@ -1,4 +1,4 @@
 {
     "image":"mcr.microsoft.com/devcontainers/universal:2",
-    "postCreateCommand": "composer create-project laravel/laravel tmp && mv -f tmp/{.,}* . && rm -rf tmp && mv -f devcontainer-postinstall.json .devcontainer/devcontainer.json"
+    "postCreateCommand": "composer create-project laravel/laravel tmp && mv -f 'tmp/{.,}*' . && rm -rf tmp && mv -f devcontainer-postinstall.json .devcontainer/devcontainer.json"
 }
