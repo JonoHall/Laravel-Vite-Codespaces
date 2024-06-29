@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -x
 composer create-project laravel/laravel ${containerWorkspaceFolder}/tmp 
 shopt -s dotglob
 mv -f ${containerWorkspaceFolder}/tmp/* ${containerWorkspaceFolder}
