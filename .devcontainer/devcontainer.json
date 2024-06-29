@@ -1,4 +1,9 @@
 {
     "image":"mcr.microsoft.com/devcontainers/universal:2",
-    "postCreateCommand": "export CONTAINER_WORKSPACE_FOLDER='${containerWorkspaceFolder}' && /bin/sh ${containerWorkspaceFolder}/.devcontainer/commands/post-create-command.sh"
+    "postCreateCommand": [
+        "composer create-project laravel/laravel",
+        "mv -f tmp/{.,}* .",
+        "rm -rf tmp",
+        "mv -f devcontainer-postinstall.json .devcontainer/devcontainer.json"
+    ]
 }
