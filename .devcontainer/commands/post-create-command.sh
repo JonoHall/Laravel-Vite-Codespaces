@@ -1,5 +1,5 @@
 #!/bin/bash -x
 composer create-project laravel/laravel ~/tmp
-cp -r ~/tmp $CONTAINER_WORKSPACE_FOLDER
+cp -r ~/tmp /workspaces/$RepositoryName
 rm -rf ~/tmp
-mv -f $CONTAINER_WORKSPACE_FOLDER/devcontainer-postinstall.json $CONTAINER_WORKSPACE_FOLDER/.devcontainer/devcontainer.json
+mv -f /workspaces/$RepositoryName/devcontainer-postinstall.json /workspaces/$RepositoryName/.devcontainer/devcontainer.json
