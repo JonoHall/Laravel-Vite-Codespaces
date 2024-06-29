@@ -1,6 +1,5 @@
 {
     "image":"mcr.microsoft.com/devcontainers/universal:2",
-    // Use 'forwardPorts' to make a list of ports inside the container available locally.
     "forwardPorts": [8000,5173],
 	"portsAttributes": {
 		"8000": {
