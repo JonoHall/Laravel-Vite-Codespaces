@@ -1,4 +1,6 @@
-## Step 1 - Clone this repository and open a Codespace with it
+## Step 1 - Clone Repository
+
+Clone this repository and open a new Codespace instance with it.
 
 ## Step 2 - Run the install script
 
