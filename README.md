@@ -2,7 +2,7 @@
 
 ## Step 2 - Run the install script
 
->> ./install.sh
+> ./install.sh
 
 ## Step 3 - Trust all proxies
 
