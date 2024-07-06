@@ -10,5 +10,5 @@ cp ./src/vite.config.js ./vite.config.js
 rm -r ./src
 sed -i '/->withMiddleware(function (Middleware $middleware) {/a \\t\t$middleware->trustProxies(at: "*");' ./bootstrap/app.php
 clear
-read -n 1 -s -r -p "Your Codespace has been configured and now needs rebuilding. This may take a moment. Press any key to continue"
+echo "Your Codespace has been configured and now needs rebuilding. This may take a moment."
 gh codespace rebuild -c $CODESPACE_NAME
