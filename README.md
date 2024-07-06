@@ -2,25 +2,7 @@
 
 Clone this repository and open a new Codespace instance with it.
 
-## Step 2 - Run the install script
+## Step 2 - Wait for Installation
 
-> ./install.sh
+When your Codespace first boots it will install Laravel and configure itself to work with Codespaces. When the installation has completed the Codespace will need to be rebuilt, wait for the instruction to refesh your screen and you should be good to go!
 
-## Step 3 - Trust all proxies
-
-You must trust all proxies for URLs to generate properly. You will find that your Laravel applications will generate incorrect links such as "Login" pointing to `http://localhost:8000/login`, to fix this, you have to trust the Codespace proxy. This is done with the following:
-
-https://laravel.com/docs/11.x/requests#trusting-all-proxies
-
-`bootstrap/app.php`
-```
-->withMiddleware(function (Middleware $middleware) {
-        $middleware->web(append: [
-            \App\Http\Middleware\HandleInertiaRequests::class,
-            \Illuminate\Http\Middleware\AddLinkHeadersForPreloadedAssets::class,
-        ]);
-        if (env('APP_ENV') == 'local') {
-            $middleware->trustProxies(at: '*');
-        }
-})
-```
