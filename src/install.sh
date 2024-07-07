@@ -7,7 +7,7 @@ mv -f $CODESPACE_VSCODE_FOLDER/src/devcontainer-postinstall.json $CODESPACE_VSCO
 rm $CODESPACE_VSCODE_FOLDER/README.md
 cp ./src/vite.config.js ./vite.config.js
 rm -r ./src
-sed -i '/->withMiddleware(function (Middleware $middleware) {/a \\t\t$middleware->trustProxies(at: "*");' ./bootstrap/app.php
+sed -i '/->withMiddleware(function (Middleware $middleware) {/a \\tif (env("APP_ENV") == "local") {\n\t\t$middleware->trustProxies(at: "*");\n\t}' ./bootstrap/app.php
 clear
 echo "Your Codespace has been configured and now needs rebuilding. This may take a moment."
 gh codespace rebuild -c $CODESPACE_NAME
