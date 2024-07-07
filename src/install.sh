@@ -9,5 +9,5 @@ cp ./src/vite.config.js ./vite.config.js
 sed -i "/withMiddleware/r ./src/trusted-proxy.php" ./bootstrap/app.php
 rm -r ./src
 clear
-echo "Your Codespace has been configured and now needs rebuilding. This may take a moment."
+echo "Your Codespace has been configured and is rebuilding. Please refresh your browser to reconnect."
 gh codespace rebuild -c $CODESPACE_NAME
