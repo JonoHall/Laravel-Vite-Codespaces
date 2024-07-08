@@ -11,7 +11,8 @@ rm -rf $CODESPACE_VSCODE_FOLDER/tmp
 
 #move the Codespace specific config files
 mv -f $CODESPACE_VSCODE_FOLDER/src/devcontainer-postinstall.json $CODESPACE_VSCODE_FOLDER/.devcontainer/devcontainer.json
-cp ./src/vite-codespaces.config.js ./
+rm $CODESPACE_VSCODE_FOLDER/README.md
+mv ./src/vite-codespaces.config.js ./
 npm pkg set scripts.dev="vite --config vite-codespaces.config.js"
 
 #inject Trusted Proxy config into bootstrap config
