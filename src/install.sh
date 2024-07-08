@@ -5,13 +5,13 @@ composer create-project laravel/laravel=11.* $CODESPACE_VSCODE_FOLDER/tmp --pref
 
 #move all files including . files, then delete the now empty folder
 shopt -s dotglob
+rm $CODESPACE_VSCODE_FOLDER/README.md
 mv -f $CODESPACE_VSCODE_FOLDER/tmp/* $CODESPACE_VSCODE_FOLDER
 rm -rf $CODESPACE_VSCODE_FOLDER/tmp
 
 
 #move the Codespace specific config files
 mv -f $CODESPACE_VSCODE_FOLDER/src/devcontainer-postinstall.json $CODESPACE_VSCODE_FOLDER/.devcontainer/devcontainer.json
-rm $CODESPACE_VSCODE_FOLDER/README.md
 mv ./src/vite-codespaces.config.js ./
 npm pkg set scripts.dev="vite --config vite-codespaces.config.js"
 
