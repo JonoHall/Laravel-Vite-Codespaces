@@ -9,7 +9,7 @@
 			"label": "React App"
 		}
 	},
-    "postCreateCommand": "cp .env.example .env && composer install && npm install && php artisan key:generate && php artisan migrate --force && php artisan migrate:fresh --seed",
+    "postCreateCommand": "cp .env.example .env && sed -i '1s/^/TRUSTED_PROXIES=*\n /' .env && composer install && npm install && php artisan key:generate && php artisan migrate --force && php artisan migrate:fresh --seed",
 	"postAttachCommand": {
 		"server": "gh codespace ports visibility 5173:public -c $CODESPACE_NAME && clear && echo Your app is visible here: https://$CODESPACE_NAME-8000.app.github.dev",
 		"vite": "npm run dev",
