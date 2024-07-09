@@ -15,7 +15,6 @@ rm -rf ./tmp
 mv -f ./src/devcontainer-postinstall.json ./.devcontainer/devcontainer.json
 mv ./src/vite-codespaces.config.js ./
 mv ./src/trustedproxy.php ./config
-sed -i '1s/^/TRUSTED_PROXIES=*\n /' .env
 npm pkg set scripts.dev="vite --config vite-codespaces.config.js"
 
 #cleanup files
