@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #install Laravel to a temporary folder, as Laravel won't install into a non-empty directory
-composer create-project laravel/laravel=11.* ./tmp --prefer-dist
+composer create-project laravel/laravel=11.* ./tmp --prefer-dist --ignore-platform-req=php
 
 #move all files including . files, then delete the now empty folder
 shopt -s dotglob
