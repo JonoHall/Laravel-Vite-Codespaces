@@ -19,7 +19,7 @@ npm pkg set scripts.dev="vite --config vite-codespaces.config.js"
 
 #cleanup files
 rm -r ./src
-rm ./README.md
+rm ./install.sh
 
 #farewell and good luck!
 clear
