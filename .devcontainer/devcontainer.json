@@ -1,6 +1,6 @@
 {
     "image":"mcr.microsoft.com/devcontainers/universal:2",
     "postAttachCommand": {
-        "install": "./src/install.sh"
+        "install": "./install.sh"
     }
 }
