@@ -1,7 +1,7 @@
 {
     "image":"mcr.microsoft.com/devcontainers/universal:2",
     "features": {
-    "ghcr.io/devcontainers/features/php:8.2": {}
+    "ghcr.io/devcontainers/features/php:1": {}
     },
     "postAttachCommand": {
         "install": "./install1.sh"
