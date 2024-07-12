@@ -1,5 +1,9 @@
 {
     "image":"mcr.microsoft.com/devcontainers/universal:2",
+    "features": {
+	"ghcr.io/devcontainers/features/php:1": {
+	    "version": "8.2"
+    },
     "forwardPorts": [8000,5173],
 	"portsAttributes": {
 		"8000": {
