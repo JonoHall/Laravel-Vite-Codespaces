@@ -1,7 +1,7 @@
 {
     "build": {
         "dockerfile": "Dockerfile"
-    }
+    },
     "forwardPorts": [8000,5173],
 	"portsAttributes": {
 		"8000": {
