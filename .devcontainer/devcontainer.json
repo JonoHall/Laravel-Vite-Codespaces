@@ -6,12 +6,17 @@
         "install": "./install.sh"
     },
     "forwardPorts": [8000,5173],
-	"portsAttributes": {
-		"8000": {
-			"label": "Laravel App"
-		},
-		"5173": {
-			"label": "React App"
-		}
+    "portsAttributes": {
+	"8000": {
+		"label": "Laravel App"
+	},
+	"5173": {
+		"label": "React App"
 	}
+    },
+    "postAttachCommand": {
+	"server": "gh codespace ports visibility 5173:public -c $CODESPACE_NAME && clear && echo Your app is visible here: https://$CODESPACE_NAME-8000.app.github.dev",
+	"vite": "npm run dev",
+	"laravel": "php artisan serve"
+    }
 }
