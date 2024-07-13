@@ -1,6 +1,5 @@
 {
-    "image":"mcr.microsoft.com/devcontainers/universal:2",
-    "postAttachCommand": {
-        "install": "export PATH=/usr/local/php/8.3.0/bin:$PATH && ./install.sh"
+    "build": {
+        "dockerfile": "Dockerfile"
     }
 }
