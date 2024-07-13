@@ -10,11 +10,18 @@ rm ./README.md
 mv -f ./tmp/* ./
 rm -rf ./tmp
 
-
 #move the Codespace specific config files
 mv ./src/vite-codespaces.config.js ./
 mv ./src/trustedproxy.php ./config
 npm pkg set scripts.dev="vite --config vite-codespaces.config.js"
+
+#finish setup
+cp .env.example .env
+sed -i '1 iTRUSTED_PROXIES=*' .env
+composer install && npm install
+php artisan key:generate
+php artisan migrate --force
+php artisan migrate:fresh --seed
 
 #cleanup files
 rm -r ./src
