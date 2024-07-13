@@ -1,6 +1,6 @@
 {
     "image":"mcr.microsoft.com/devcontainers/universal:2",
     "postAttachCommand": {
-        "install": "./install1.sh"
+        "install": "export PATH=/usr/local/php/8.3.0/bin:$PATH && ./install.sh"
     }
 }
