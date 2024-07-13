@@ -3,6 +3,6 @@
         "dockerfile": "Dockerfile"
     },
     "postAttachCommand": {
-        "install": "export PATH=/usr/local/php/8.3.0/bin:$PATH && ./install.sh"
+        "install": "./install.sh"
     }
 }
