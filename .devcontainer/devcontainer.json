@@ -4,5 +4,14 @@
     },
     "postAttachCommand": {
         "install": "./install.sh"
-    }
+    },
+    "forwardPorts": [8000,5173],
+	"portsAttributes": {
+		"8000": {
+			"label": "Laravel App"
+		},
+		"5173": {
+			"label": "React App"
+		}
+	}
 }
