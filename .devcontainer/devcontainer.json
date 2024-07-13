@@ -2,9 +2,6 @@
     "build": {
         "dockerfile": "Dockerfile"
     },
-    "postAttachCommand": {
-        "install": "./install.sh"
-    },
     "forwardPorts": [8000,5173],
     "portsAttributes": {
 	"8000": {
