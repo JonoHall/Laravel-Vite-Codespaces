@@ -1,5 +1,7 @@
 #!/bin/bash
-if [ ! -f ./artisan ]; then
+if [ -e ./install.sh ]; then
+  ./install.sh
+else
   cp .env.example .env
   sed -i '1 iTRUSTED_PROXIES=*' .env
   composer install && npm install
