@@ -12,7 +12,6 @@ rm -rf ./tmp
 
 
 #move the Codespace specific config files
-mv -f ./src/devcontainer-postinstall.json ./.devcontainer/devcontainer.json
 mv ./src/vite-codespaces.config.js ./
 mv ./src/trustedproxy.php ./config
 npm pkg set scripts.dev="vite --config vite-codespaces.config.js"
