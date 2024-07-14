@@ -11,6 +11,7 @@
 		"label": "React App"
 	}
     },
+    "postCreateCommand": "bash ./devcontainer/postCreateCommand.sh",
     "postAttachCommand": {
 	"server": "gh codespace ports visibility 5173:public -c $CODESPACE_NAME && clear && echo Your app is visible here: https://$CODESPACE_NAME-8000.app.github.dev"
     }
