@@ -29,3 +29,6 @@ rm -r ./src
 
 #farewell and good luck!
 clear
+echo Install complete! Your Codespace will now be stopped, please refresh your screen and restart the Codespace.
+gh codespace stop -c $CODESPACE_NAME
+
