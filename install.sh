@@ -13,6 +13,7 @@ rm -rf ./tmp
 #move the Codespace specific config files
 mv ./src/vite-codespaces.config.js ./
 mv ./src/trustedproxy.php ./config
+mv ./src/.vscode/tasks.json ./.vscode/tasks.json
 npm pkg set scripts.dev="vite --config vite-codespaces.config.js"
 
 #finish setup
@@ -29,5 +30,3 @@ rm ./install.sh
 
 #farewell and good luck!
 clear
-echo "Your Codespace has been configured and is rebuilding. Please refresh your browser to reconnect."
-gh codespace rebuild -c $CODESPACE_NAME
