@@ -1,6 +1,6 @@
 #!/bin/bash +x
 if test -f ./src/install.sh; then
-  ./src/install.sh > /dev/null
+  ./src/install.sh
 else
   cp .env.example .env
   sed -i '1 iTRUSTED_PROXIES=*' .env
