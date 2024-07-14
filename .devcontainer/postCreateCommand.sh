@@ -1,6 +1,5 @@
-#!/bin/bash
-cd $CODESPACE_VSCODE_FOLDER
-if test -f $CODESPACE_VSCODE_FOLDER/src/install.sh; then
+#!/bin/bash +x
+if test -f ./src/install.sh; then
   ./src/install.sh
 else
   cp .env.example .env
