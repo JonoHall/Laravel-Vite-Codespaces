@@ -13,7 +13,7 @@ rm -rf ./tmp
 #move the Codespace specific config files
 mv ./src/vite-codespaces.config.js ./
 mv ./src/trustedproxy.php ./config
-mv ./src/.vscode/tasks.json ./.vscode/tasks.json
+mkdir ./.vscode && mv ./src/.vscode/tasks.json ./.vscode/tasks.json
 npm pkg set scripts.dev="vite --config vite-codespaces.config.js"
 
 #finish setup
