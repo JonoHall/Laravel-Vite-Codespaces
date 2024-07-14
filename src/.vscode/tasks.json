@@ -1,0 +1,31 @@
+{
+	// See https://go.microsoft.com/fwlink/?LinkId=733558 
+	// for the documentation about the tasks.json format
+	"version": "2.0.0",
+	"tasks": [
+      {
+          "label": "Run Vite",
+          "type": "shell",
+          "command": "npm run dev",
+          "presentation": {
+              "reveal": "always",
+              "panel": "new"
+          },
+          "runOptions": {
+              "runOn": "folderOpen"
+          }
+      },
+      {
+          "label": "Run Laravel via Serve",
+          "type": "shell",
+          "command": "php artisan serve",
+          "presentation": {
+              "reveal": "always",
+              "panel": "new"
+          },
+          "runOptions": {
+              "runOn": "folderOpen"
+          }
+      }
+	]
+}
