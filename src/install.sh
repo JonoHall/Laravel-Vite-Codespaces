@@ -26,7 +26,6 @@ php artisan migrate:fresh --seed
 
 #cleanup files
 rm -r ./src
-rm ./install.sh
 
 #farewell and good luck!
 clear
