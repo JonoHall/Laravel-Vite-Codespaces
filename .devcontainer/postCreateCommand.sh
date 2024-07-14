@@ -1,5 +1,5 @@
 #!/bin/bash
-if [ -e ./src/install.sh ]; then
+if -f ./src/install.sh; then
   ./src/install.sh
 else
   cp .env.example .env
