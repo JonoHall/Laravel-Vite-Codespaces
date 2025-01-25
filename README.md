@@ -1,6 +1,10 @@
 This document demonstrates how to run a Laravel package that utilizes Vite asset bundling on a Github Codespaces instance. This is untested with Laravel Sail as setting up a docker container inside a Codespace instance seems a little redundant however a little more manual to set up.
 
+# New installations
+
 If you need to create a project, create a blank GitHub repository and add [devcontainer.json](.devcontainer/devcontainer.json) to it with a `.devcontainer/devcontainer.json` path. Then create a codespace with your new repository, then run through the Laravel install instructions.
+
+# Existing installation
 
 If you have an existing project, modify your settings as below *at your own risk*:
 
