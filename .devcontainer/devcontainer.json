@@ -12,7 +12,7 @@
 	},
     "postCreateCommand": "cp .env.example .env && composer install && npm install && php artisan key:generate && php artisan migrate --force && php artisan migrate:fresh --seed",
 	"postAttachCommand": {
-		"server": "gh codespace ports visibility 5173:public -c $CODESPACE_NAME",
+		"server": "gh codespace ports visibility 5173:public -c $CODESPACE_NAME && exit",
 		"vite": "bash .devcontainer/postAttach/vite.sh",
 		"laravel": "bash .devcontainer/postAttach/laravel.sh"
 	  }
