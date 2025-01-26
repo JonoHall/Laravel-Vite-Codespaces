@@ -54,7 +54,7 @@ Modify `APP_URL` in your `.env` (if it exists) and `.env.example` to ensure that
 
 `.env` (if it exists) and `.env.example`
 ```
-APP_URL=https://{$CODESPACE_NAME}-8000.app.github.dev
+APP_URL=https://$CODESPACE_NAME-8000.app.github.dev
 ```
 
 ### 4. Trust all proxies
