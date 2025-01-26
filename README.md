@@ -8,8 +8,8 @@ If you need to create a project, create a blank GitHub repository and copy the c
 
 ```
 composer global require laravel/installer
-laravel new app
-mv app/* app/.[^.]* . && rm -r app
+laravel new tempapp
+mv tempapp/* tempapp/.[^.]* . && rm -r tempapp
 ```
 
 ### Option 2: Existing installation
