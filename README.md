@@ -29,7 +29,7 @@ Change the Vite config so that when you open the Laravel website your web client
     ],
     server: {
         hmr: {
-            host: process.env.CODESPACE_NAME ? process.env.CODESPACE_NAME + '-5173.app.github.dev' : null,
+            host: process.env.CODESPACE_NAME ? process.env.CODESPACE_NAME + '-5173.' + process.env.GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN : null,
             clientPort: process.env.CODESPACE_NAME ? 443 : null,
             protocol: process.env.CODESPACE_NAME ? 'wss' : null
         },
